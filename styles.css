@@ -1,13 +1,15 @@
+/* Variables raíz */
 :root {
-  --primary-color: #4a90e2;
-  --secondary-color: #50c878;
-  --text-color: #333;
-  --bg-color: #f9f9f9;
-  --alt-bg: #fff;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --primary-color: #4a90e2; /* Color principal (azul) */
+  --secondary-color: #50c878; /* Color secundario (verde) */
+  --text-color: #333; /* Color de texto principal */
+  --bg-color: #f9f9f9; /* Color de fondo principal */
+  --alt-bg: #fff; /* Color de fondo alternativo */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra estándar */
+  --transition: all 0.3s ease; /* Transición suave para interacciones */
 }
 
+/* Tema oscuro */
 body.dark {
   --primary-color: #4a90e2;
   --secondary-color: #50c878;
@@ -17,6 +19,7 @@ body.dark {
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Estilos base */
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-color);
@@ -26,12 +29,14 @@ body {
   transition: var(--transition);
 }
 
+/* Contenedor principal */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+/* Botón flotante */
 .fab {
   position: fixed;
   bottom: 20px;
@@ -53,6 +58,7 @@ body {
   background: #3a7bc8;
 }
 
+/* Widget de versículo diario */
 .verse-widget {
   position: fixed;
   top: 100px;
@@ -86,6 +92,7 @@ body {
   }
 }
 
+/* Encabezado */
 .header {
   background: var(--alt-bg);
   box-shadow: var(--shadow);
@@ -133,6 +140,7 @@ body {
   color: var(--primary-color);
 }
 
+/* Botones */
 .btn {
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -184,6 +192,7 @@ body {
   background: #40a868;
 }
 
+/* Hero */
 .hero {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   background-size: cover;
@@ -205,6 +214,7 @@ body {
   gap: 1rem;
 }
 
+/* Secciones */
 .section {
   padding: 4rem 0;
 }
@@ -231,6 +241,7 @@ h2 {
   gap: 1.5rem;
 }
 
+/* Carrusel */
 .frase-destacada {
   text-align: center;
   margin-bottom: 2rem;
@@ -248,10 +259,12 @@ h2 {
 .carousel-inner {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .carousel-item {
   min-width: 100%;
+  flex: 0 0 100%;
   text-align: center;
 }
 
@@ -289,6 +302,7 @@ h2 {
   border-radius: 10px;
 }
 
+/* Tarjetas */
 .cards .card {
   background: var(--alt-bg);
   padding: 1.5rem;
@@ -328,6 +342,7 @@ h2 {
   color: gray;
 }
 
+/* Pasos */
 .steps .step {
   background: var(--alt-bg);
   padding: 1.5rem;
@@ -335,6 +350,7 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+/* Reto */
 .reto-content {
   background: var(--alt-bg);
   padding: 1.5rem;
@@ -373,6 +389,7 @@ h2 {
   margin-top: 1rem;
 }
 
+/* Cuestionario */
 .quiz-content {
   max-width: 600px;
   margin: 0 auto;
@@ -400,6 +417,7 @@ h2 {
   margin-right: 0.5rem;
 }
 
+/* Videos */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -472,6 +490,7 @@ h2 {
   opacity: 0.8;
 }
 
+/* Recursos */
 .resource-list {
   list-style: none;
   padding: 0;
@@ -488,6 +507,7 @@ h2 {
   box-shadow: var(--shadow);
 }
 
+/* Formularios */
 .form {
   max-width: 600px;
   margin: 0 auto;
@@ -525,6 +545,7 @@ h2 {
   color: #fff;
 }
 
+/* Redes sociales */
 .social {
   display: flex;
   justify-content: center;
@@ -543,6 +564,7 @@ h2 {
   color: var(--primary-color);
 }
 
+/* Pie de página */
 .footer {
   background: var(--alt-bg);
   padding: 2rem 0;
@@ -565,6 +587,7 @@ h2 {
   text-decoration: none;
 }
 
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -595,7 +618,11 @@ h2 {
   border-radius: 10px;
 }
 
-.reading-mode .header, .reading-mode .footer, .reading-mode .fab, .reading-mode .verse-widget {
+/* Modo lectura */
+.reading-mode .header,
+.reading-mode .footer,
+.reading-mode .fab,
+.reading-mode .verse-widget {
   display: none;
 }
 
@@ -633,9 +660,11 @@ h2 {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .menu-toggle {
     display: block;
   }
+
   .menu {
     display: none;
     flex-direction: column;
@@ -646,18 +675,23 @@ h2 {
     left: 0;
     padding: 1rem;
   }
+
   .menu.active {
     display: flex;
   }
+
   .hero h1 {
     font-size: 2rem;
   }
+
   .video-grid {
     grid-template-columns: 1fr;
   }
+
   .youtube-container, .tiktok-container {
     max-width: 300px;
   }
+
   .video-gallery {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
