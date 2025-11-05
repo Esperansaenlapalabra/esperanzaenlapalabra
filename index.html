@@ -5,46 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Esperanza en la Palabra – Motivación Cristiana</title>
   <meta name="description" content="Encuentra consuelo y fortaleza con frases, consejos y retos basados en la Biblia Reina Valera.">
+
   <!-- Metaetiquetas SEO -->
   <meta property="og:title" content="Esperanza en la Palabra – Motivación Cristiana">
   <meta property="og:description" content="Encuentra consuelo y fortaleza con frases, consejos y retos basados en la Biblia Reina Valera.">
   <meta property="og:image" content="/images/og-image.webp">
-  <meta property="og:url" content="https://tu-usuario.github.io/esperanza-en-la-palabra/">
+  <meta property="og:url" content="https://esperanzaenlapalabra.github.io/esperanzaelapalabra/">
   <meta name="twitter:card" content="summary_large_image">
+
   <!-- Precarga de recursos -->
   <link rel="preload" href="/images/og-image.webp" as="image">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@300;700" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@300;700" as="font">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@300;700&display=stylesheet" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/images/favicon.ico">
   <link rel="manifest" href="/manifest.json">
+
   <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js" defer></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging.js" defer></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js" defer></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging.js" defer></script>
+
   <!-- Confeti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
-  <!-- Google Analytics (reemplaza UA-TU-ID con tu ID real) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-42R816R456"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX'); // Usa un ID de Google Analytics válido
+    gtag('config', 'G-42R816R456'); // Reemplaza con tu ID real de Google Analytics
   </script>
 </head>
 <body>
-  <button id="shareFab" class="fab" aria-label="Compartir página"><i class="fas fa-share-alt"></i></button>
+  <!-- Botón flotante para compartir -->
+  <button id="shareFab" class="fab" role="button" aria-label="Compartir página">
+    <i class="fas fa-share-alt"></i>
+  </button>
+
+  <!-- Widget de versículo diario -->
   <aside class="verse-widget" id="dailyVerseWidget">
     <h3 data-i18n="verseWidgetTitle">Versículo del día</h3>
     <div id="dailyVerse"></div>
     <button class="btn btn-share" id="shareVerse" data-i18n="shareVerse">Compartir</button>
   </aside>
+
+  <!-- Encabezado -->
   <header class="header">
     <div class="container nav">
       <a class="brand" href="/" aria-label="Inicio">Esperanza en la Palabra</a>
-      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+      <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">
+        <i class="fas fa-bars"></i>
+      </button>
       <nav class="menu">
         <a href="#frases">Frases</a>
         <a href="#consejos">Consejos</a>
@@ -58,11 +72,15 @@
           <option value="es" selected>ES</option>
           <option value="en">EN</option>
         </select>
-        <button id="themeSwitcher" aria-label="Cambiar tema"><i class="fas fa-moon"></i></button>
+        <button id="themeSwitcher" aria-label="Cambiar tema">
+          <i class="fas fa-moon"></i>
+        </button>
         <button id="readingMode" class="btn btn-outline">Modo Lectura</button>
       </nav>
     </div>
   </header>
+
+  <!-- Hero -->
   <section class="hero">
     <div class="container hero-content">
       <h1 data-i18n="heroTitle">Encuentra consuelo y fortaleza en las promesas de Dios</h1>
@@ -73,6 +91,8 @@
       </div>
     </div>
   </section>
+
+  <!-- Frases -->
   <section id="frases" class="section">
     <div class="container">
       <h2 data-i18n="frasesTitle">Frases y versículos</h2>
@@ -87,6 +107,8 @@
       <div class="grid cards" id="frasesGrid"></div>
     </div>
   </section>
+
+  <!-- Consejos -->
   <section id="consejos" class="section alt">
     <div class="container">
       <h2 data-i18n="consejosTitle">Consejos prácticos</h2>
@@ -94,6 +116,8 @@
       <div class="grid steps" id="consejosGrid"></div>
     </div>
   </section>
+
+  <!-- Reto -->
   <section id="reto" class="section">
     <div class="container">
       <h2 data-i18n="retoTitle">Reto de 14 días de esperanza</h2>
@@ -108,40 +132,55 @@
       </div>
     </div>
   </section>
+
+  <!-- Videos -->
   <section id="videos" class="section">
-    <div class="container">
-      <h2 data-i18n="videosTitle">Videos</h2>
-      <p class="section-lead" data-i18n="videosLead">Mensajes breves para renovar tu ánimo.</p>
-      <div class="video-grid">
-        <div class="video-embed youtube-container">
-          <h3>Fe real para jóvenes con dudas y ansiedad</h3>
-          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/videoseries?list=PL-iNGxI8MjHowNRx80gT9VZivHtF69wM7" title="Fe real para jóvenes con dudas y ansiedad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-          <a href="https://www.youtube.com/@esperanza-en-la-palabra" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="moreVideos">Ver más videos</a>
-        </div>
-        <div class="video-embed tiktok-container">
-          <h3>Reflexión diaria para tu fe</h3>
-          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@esperanzaenlapalabra/video/7561072055391702283" data-video-id="7561072055391702283">
-            <section><a target="_blank" href="https://www.tiktok.com/@esperanzaenlapalabra?refer=creator_embed">@esperanzaenlapalabra</a></section>
-          </blockquote>
-          <script async src="https://www.tiktok.com/embed.js" defer></script>
-          <a href="https://www.tiktok.com/@esperanzaenlapalabra" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="moreTiktok">Ver más en TikTok</a>
+  <div class="container">
+    <h2 data-i18n="videosTitle">Videos inspiradores</h2>
+    <p class="section-lead" data-i18n="videosLead">Mensajes cortos para tu día a día.</p>
+    <div class="video-grid" id="videoGrid">
+      <!-- Video 1: YouTube -->
+      <div class="video-embed">
+        <h3>Versículos de Esperanza y Fortaleza</h3>
+        <div class="youtube-container">
+          <iframe 
+            width="100%" 
+            height="315" 
+            src="https://www.youtube.com/VIDEO_ID_1" 
+            title="Versículos Bíblicos de Esperanza" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
-      <h3 data-i18n="featuredVideos">Videos destacados</h3>
-      <div class="video-gallery" id="videoGallery"></div>
+      
+      <!-- Video 2: TikTok -->
+      <div class="video-embed">
+        <h3>Mensaje de Fe Diaria</h3>
+        <div class="tiktok-container">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@esperanzaenlapalabra/video/7563720086121352504" data-video-id="1234567890" style="width: 325px;height: 700px;">
+            <!-- El script de TikTok lo rellena automáticamente -->
+          </blockquote>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+  <!-- Cuestionario -->
   <section id="cuestionario" class="section alt">
     <div class="container">
-      <h2 data-i18n="quizTitle">Encuentra tu versículo de fortaleza</h2>
-      <p class="section-lead" data-i18n="quizLead">Responde 3 preguntas y descubre un versículo bíblico para tu momento actual.</p>
-      <div id="quizContent" class="quiz-content">
-        <form id="quizForm" class="form">
+      <h2 data-i18n="quizTitle">Cuestionario personalizado</h2>
+      <p class="section-lead" data-i18n="quizLead">Responde 3 preguntas para recibir un versículo a tu medida.</p>
+      <div class="quiz-content">
+        <form id="quizForm">
           <div id="question1" class="quiz-question">
-            <p data-i18n="quizQ1">¿Qué sientes más en este momento?</p>
-            <label><input type="radio" name="q1" value="estres" required> Estrés</label>
-            <label><input type="radio" name="q1" value="duda"> Duda</label>
-            <label><input type="radio" name="q1" value="desmotivacion"> Desmotivación</label>
+            <p data-i18n="quizQ1">¿Cómo te sientes hoy?</p>
+            <label><input type="radio" name="q1" value="estres" required> Estresado</label>
+            <label><input type="radio" name="q1" value="duda"> Con dudas</label>
+            <label><input type="radio" name="q1" value="desmotivacion"> Desmotivado</label>
           </div>
           <div id="question2" class="quiz-question" style="display: none;">
             <p data-i18n="quizQ2">¿Qué necesitas hoy?</p>
@@ -161,6 +200,8 @@
       </div>
     </div>
   </section>
+
+  <!-- Blog -->
   <section id="blog" class="section">
     <div class="container">
       <h2 data-i18n="blogTitle">Reflexiones</h2>
@@ -180,6 +221,8 @@
       </div>
     </div>
   </section>
+
+  <!-- Recursos -->
   <section id="recursos" class="section alt">
     <div class="container">
       <h2 data-i18n="resourcesTitle">Recursos</h2>
@@ -192,16 +235,18 @@
         <li>
           <strong data-i18n="res2">Oraciones guiadas</strong>
           <span data-i18n="res2Desc">Textos breves para tus momentos difíciles.</span>
-          <a href="#" class="btn btn-link" data-i18n="download">Descargar</a>
+          <a href="/oraciones-guiadas.pdf" class="btn btn-link" data-i18n="download">Descargar</a>
         </li>
       </ul>
     </div>
   </section>
+
+  <!-- Suscripción -->
   <section id="suscripcion" class="section">
     <div class="container">
       <h2 data-i18n="subscribeTitle">Recibe esperanza en tu bandeja</h2>
       <p data-i18n="subscribeLead">Suscríbete y recibe un PDF gratuito con 10 versículos para tiempos difíciles.</p>
-      <form id="subscribeForm" class="form" action="https://formspree.io/f/tu-form-id" method="POST">
+      <form id="subscribeForm" class="form" action="https://formspree.io/f/xabc1234" method="POST">
         <label for="email" data-i18n="emailLabel">Correo electrónico</label>
         <input id="email" name="email" type="email" placeholder="tu@email.com" required />
         <button class="btn btn-primary" type="submit" data-i18n="subscribeBtn">Suscribirme</button>
@@ -211,10 +256,12 @@
       <div id="formMessage" class="form-message" style="display: none;"></div>
     </div>
   </section>
+
+  <!-- Contacto -->
   <section id="contacto" class="section alt">
     <div class="container">
       <h2 data-i18n="contactTitle">Contacto</h2>
-      <form id="contactForm" class="form" action="https://formspree.io/f/tu-form-id" method="POST">
+      <form id="contactForm" class="form" action="https://formspree.io/f/xwpwelyp" method="POST">
         <label for="name" data-i18n="nameLabel">Nombre</label>
         <input id="name" name="name" type="text" placeholder="Tu nombre" required />
         <label for="message" data-i18n="messageLabel">Mensaje</label>
@@ -223,31 +270,30 @@
       </form>
       <div id="contactFormMessage" class="form-message" style="display: none;"></div>
       <div class="social">
-        <a href="https://www.facebook.com/esperanzaenlapalabra" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://www.facebook.com/esperanzaenlapalabraoficial" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i> Facebook</a>
         <a href="https://www.tiktok.com/@esperanzaenlapalabra" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok</a>
-        <a href="http://www.youtube.com/@esperanza-en-la-palabra" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://www.youtube.com/@esperanza-en-la-palabra" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
         <a href="https://www.instagram.com/esperanzaenlapalabra.oficial" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a>
       </div>
     </div>
   </section>
+
+  <!-- Pie de página -->
   <footer class="footer">
     <div class="container footer-content">
       <p>&copy; <span id="year"></span> Esperanza en la Palabra – Motivación Cristiana</p>
       <nav class="footer-links">
         <a href="#contacto">Contacto</a>
         <a href="#recursos">Recursos</a>
-        <a href="#" id="privacyLink">Privacidad</a>
-        <a href="https://paypal.me/tu-cuenta" class="btn btn-primary" data-i18n="donate">Apoya este ministerio</a>
+        <a href="/privacy.html" id="privacyLink">Privacidad</a>
+        <a href="https://paypal.me/miusuario" class="btn btn-primary" data-i18n="donate">Apoya este ministerio</a>
       </nav>
     </div>
   </footer>
 
   <!-- Scripts locales -->
   <script src="app.js" defer></script>
-  <script src="firebase.js" defer></script>
-  <script src="sw.js" defer></script>
-
-  <!-- Script TikTok (mantenido aquí para compatibilidad) -->
+  <script type="module" src="firebase.js" defer></script>
   <script async src="https://www.tiktok.com/embed.js" defer></script>
 </body>
 </html>
